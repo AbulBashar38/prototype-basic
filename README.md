@@ -108,7 +108,7 @@ sakib.eat() // person is eating
 const tamim = Person('tamim',32)
 ```
 এখানে আমরা method গুলো personShareMethod এ না রেখে Person এর prototype এর মধ্যে রেখে দিতে পারি। তাহলে personShareMethod এর মতো বাইরে কোনো object create করতে হচ্ছে নাহ।
-** Prototype হলো javascript এর যেকোনো একটা function এর প্রপার্টি যেটা একটা object কে point করে।**
+**Prototype হলো javascript এর যেকোনো একটা function এর প্রপার্টি যেটা একটা object কে point করে।**
 ```javascript
 
 function Person(name, age) {

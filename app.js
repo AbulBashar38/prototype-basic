@@ -9,20 +9,18 @@
 //     console.log('person is sleeping')
 // }
 
-function Person(name, age) {
-    const person = Object.create(Person.prototype)
-    person.name = name;
-    person.age = age;
-    return person;
-}
-Person.prototype={
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    };
     eat() {
         console.log('person is eating')
-    },
+    };
     sleep() {
         console.log('person is sleeping')
     }
 }
-const kuddos = Person('kuddus', 20);
-console.dir(kuddos);
-const kobir = Person('kobir', 40);
+const kuddos = new Person('kuddus', 20);
+kuddos.sleep()
+const kobir = new Person('kobir', 40);

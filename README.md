@@ -108,7 +108,9 @@ sakib.eat() // person is eating
 const tamim = Person('tamim',32)
 ```
 এখানে আমরা method গুলো personShareMethod এ না রেখে Person এর prototype এর মধ্যে রেখে দিতে পারি। তাহলে personShareMethod এর মতো বাইরে কোনো object create করতে হচ্ছে নাহ।
+
 **Prototype হলো javascript এর যেকোনো একটা function এর প্রপার্টি যেটা একটা object কে point করে।**
+
 ```javascript
 
 function Person(name, age) {
@@ -134,4 +136,42 @@ Person.prototype={
 const sakib = Person('sakib',34)
 sakib.eat() // person is eating
 const tamim = Person('tamim',32)
+```
+এখন আমরা যদি const sakib = Person('sakib',34) কে const sakib = new Person('sakib',34) করে লেখি তখন const person = Object.create(Person.prototype); এবং return person; লেখার দরকার হয় নাহ। javascript তা নিজে নিজে লিখে নেয়। যেহেতু আমরা কোনো person নামে অব্জেক্ট বানাচ্ছি নাহ javascript বানাচ্ছে তাই javascript this নামের object বানায়।
+```javascript 
+function Person(name, age) {
+    //const this = Object.create(Person.prototype)
+    this.name = name;
+    this.age = age;
+   // return this;
+}
+Person.prototype={
+    eat() {
+        console.log('person is eating')
+    },
+    sleep() {
+        console.log('person is sleeping')
+    }
+}
+const kuddos = new Person('kuddus', 20);
+kuddos.sleep()
+const kobir = new Person('kobir', 40);
+```
+এই concept থেকে আমরা class টা বুঝতে পারি। class এর মাধ্যমে আমরা এই পুরা কোডটা কে আমরা খুব সহজে লিখতে পারি।
+```javascript
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    };
+    eat() {
+        console.log('person is eating')
+    };
+    sleep() {
+        console.log('person is sleeping')
+    }
+}
+const kuddos = new Person('kuddus', 20);
+kuddos.sleep()
+const kobir = new Person('kobir', 40);
 ```
